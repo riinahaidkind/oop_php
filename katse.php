@@ -8,18 +8,6 @@
 
 // muutujate defineerimine
 // $muutujaNimi = väärtus;
-$lehePealkiri = 'Katse leht';
-$sisuPealkiri = 'Muutujate defineerimine';
-// tingimuslaused
-/*
- * if (tingimus == true) {
- *      siis toimub see osa
- * } else {
- *      muidu toimub see osa
- * }
- * */
-$naitaSisu = false;
-$naitaPeidetudInfo = false;
 echo '
     <!doctype html>
     <html>

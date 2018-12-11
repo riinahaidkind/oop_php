@@ -6,6 +6,7 @@
  * Time: 9:41
  */
 
+echo '<html><head><title>Ülesanded</title></head><body>';
 // Ülesanne 1
 /* Loo programm, mille sees:
 a) defineeritud muutujate abil
@@ -15,43 +16,31 @@ a) defineeritud muutujate abil
     Sinu kooli email
 b) Väljastatud muutujate väärtused koos sobiva tekstiga html faili kujul
 */
-
-
-
-// muutujate defineerimine
-// $muutujaNimi = väärtus;
-$eesNimi = 'Riina';
+echo '<h4>Ülesanne 1</h4>';
+$eesNimi = 'Riinaa';
 $pereNimi = 'Häidkind';
-$kursuseTahis = 'KD';
-$kursuseNumber = '18';
-$kooliEmail = 'riina.haidkind@khk.ee';
-
-// muutujate sisu testvaatamine
-//var_dump($lehePealkiri);
-//echo '<br>';
-//var_dump($sisuPealkiri);
-// andmetüübid
-$taisarv = 7;
-$reaalarv = -2.6;
-$tekst = 'Tere PHP';
-$toevaartusTrue = true;
-$toevaartusFalse = false;
-// väärtuse tüübi kontroll - gettype($muutujaNimi)
-// väärtuse tüübi teisendus - settype($muutujaNimi, 'tüüp')
-// väljastamine
-// ühendamine 'tekst katkeb '.$muutujaNimi.' tekst jätkub'
-echo '
-    <!doctype html>
-    <html>
-        <body>
-            <ul>
-                <li>$eesNimi = '.$eesNimi.' </li>
-                <li>$pereNimi = '.$pereNimi.' </li>
-                <li>$kursuseTahis = '.$kursuseTahis.' </li>
-                <li>$kursuseNumber = '.$kursuseNumber.' </li>
-                <li>$kooliEmail = '.$kooliEmail.' </li>
-            </ul>
-        </body>
-    </html>
-';
-?>
+$osakond = 'KD';
+$email = 'riina.haidkind@khk.ee';
+echo 'Eesnimi '.$eesNimi.'<br>';
+echo 'Perenimi '.$pereNimi.'<br>';
+echo 'Osakond '.$osakond.'<br>';
+echo 'email '.$email.'<br>';
+echo '<hr>';
+// Ülesanne 2
+/* Loo muutuja nimega varv, mille algväärtuseks pane 'punane';
+Koosta if-else if- else lause, mis väljastab teksti "Värviline tekst"
+vastavalt määratud väärtusega. Katseta vähemalt kolme HTML värviga -
+red, blue, orange - vastavalt tingimuslauses määra punane, sinine ja orange
+*/
+echo '<h4>Ülesanne 2</h4>';
+$varv = 'roheline';
+if($varv == 'punane'){
+    echo '<p style="color: red;">Värviline tekst</p>';
+} else if($varv == 'sinine'){
+    echo '<p style="color: blue;">Värviline tekst</p>';
+} else if($varv == 'orange'){
+    echo '<p style="color: orange;">Värviline tekst</p>';
+} else {
+    echo '<p>Värviline tekst</p>';
+}
+echo '</body></html>';
