@@ -12,21 +12,30 @@ echo '
     <!doctype html>
     <html>
         <head>
-            <title>'.$lehePealkiri.'</title>
+            <title>Tsüklid</title>
+            <link rel="stylesheet" type="text/css" href="katsestyle.css">
         </head>
         <body>';
-        if($naitaSisu == true) {
-            echo ' <h1>' . $sisuPealkiri . '</h1>';
-    } else if ($naitaSisu == 1) {
-            echo 'see on tavaline info';
-        } else if($naitaSisu == 0) {
-            echo 'see on tavaline peidetud info';
-    } else {
-        echo 'Kõik on saladus!';
-}
-// html lehe lõpp
-echo '
-        </body>
-    </html>
-';
+//tsüklid
+//for
+/*
+ * for ($juhtimisM=algväärtus; $juhtimisM < lõppväärtus; $juhtimisM++) {
+ * tegevused, mis toimuvad nii kaua, kui $juhtimisM < lõppväärtus kehtib
+ * }
+ *
+ */
+echo '<table>';
+$ridadeArv = 6;
+$veergudeArv = 5;
+for($reaNumber = 1; $reaNumber <= $ridadeArv; $reaNumber++){
+    echo '<tr>';
+        for($veeruNumber = 1; $veeruNumber <= $veergudeArv; $veeruNumber++) {
+    echo '<td>';
+    echo $veeruNumber;
+    echo '</td>';
+    }
+    echo '</tr>';
+    }
+    echo '</table>';
+echo '</body></html>';
 ?>
