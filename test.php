@@ -44,3 +44,44 @@ if($varv == 'punane'){
     echo '<p>Värviline tekst</p>';
 }
 echo '</body></html>';
+
+
+echo '<h4>Ülesanne 3</h4>';
+
+/*
+ *
+ */
+echo '
+    <!doctype html>
+    <html>
+        <head>
+            <title>Tsüklid</title>
+            <link rel="stylesheet" type="text/css" href="katsestyle.css">
+        </head>
+        <body>';
+//tsüklid
+//for
+/*
+ * for ($juhtimisM=algväärtus; $juhtimisM < lõppväärtus; $juhtimisM++) {
+ * tegevused, mis toimuvad nii kaua, kui $juhtimisM < lõppväärtus kehtib
+ * }
+ *
+ */
+echo '<table>';
+$ridadeArv = 6;
+$veergudeArv = 5;
+for($reaNumber = 1; $reaNumber <= $ridadeArv; $reaNumber++){
+    echo '<tr>';
+    for($veeruNumber = 1; $veeruNumber <= $veergudeArv; $veeruNumber++) {
+        $varv = '#';
+        for ($i = 1; $i <= 6; $i++){
+            $varv = $varv.dechex(rand(0, 16));
+        }
+        echo '<td style="background-color: '.$varv.'">';
+        echo $veeruNumber;
+        echo '</td>';
+    }
+    echo '</tr>';
+}
+echo '</table>';
+echo '</body></html>';
