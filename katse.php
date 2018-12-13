@@ -9,15 +9,20 @@
 // muutujate defineerimine
 // $muutujaNimi = väärtus;
 
-//funktsioonid
-//function
+//massiivid
+//array()
 /*
- * function funktsiooniNimi ([$param1, $param2]) {
- * kõik tegevused
- * mis antud funktsiooni sees toimuvad
- * }
- *
+// * $massiiv = array (); // tühi massiiv = ei ole sees midagi
+$massiiv[] = väärtus;
  */
+$nimed = array();
+$nimed[] = 'Anna';
+$nimed[] = 'Elen';
+var_dump($nimed);
+echo '<pre';
+print_r($nimed);
+echo '<pre>';
+
 function htmlTabel ($ridadeArv = 0, $veergudeArv = 0) {
     $table = '<table>';
         for ($reaNumber = 1; $reaNumber <= $ridadeArv; $reaNumber++) {
