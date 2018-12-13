@@ -15,13 +15,37 @@
 // * $massiiv = array (); // tühi massiiv = ei ole sees midagi
 $massiiv[] = väärtus;
  */
-$nimed = array();
-$nimed[] = 'Anna';
-$nimed[] = 'Elen';
-var_dump($nimed);
-echo '<pre';
-print_r($nimed);
+
+//massiivi loomine
+$numbrid = array(
+    array(1,2,3),
+    array(4,5,6),
+    array(7,8,9),
+);
+//massiivi sisu testkontroll
+var_dump($numbrid);
 echo '<pre>';
+print_r($numbrid);
+echo '</pre>';
+//massiivi sisendi väljastamine
+echo $numbrid[1][1];
+
+//massiivi suuruse kontroll = meil on see ridade arv
+$ridadeArv = count($numbrid);
+echo $ridadeArv;
+echo'<br>';
+$veergudeArv = count($numbrid[0]);
+echo'<br>';
+
+
+// massiivi väljastamine for abil
+for($reaNumber = 0; $reaNumber < $ridadeArv; $reaNumber++){
+    for($veeruNumber = 0; $veeruNumber < $veergudeArv; $veeruNumber++){
+        echo $numbrid[$reaNumber][$veeruNumber].'&nbsp;';
+    }
+    echo '<br>';
+}
+
 
 function htmlTabel ($ridadeArv = 0, $veergudeArv = 0) {
     $table = '<table>';
