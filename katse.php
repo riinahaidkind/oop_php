@@ -46,6 +46,13 @@ for($reaNumber = 0; $reaNumber < $ridadeArv; $reaNumber++){
     echo '<br>';
 }
 
+//massiivi väljastamine foreach abil, peab teadma struktuuri
+foreach ($numbrid as $rida) {
+    foreach ($rida as $number){
+        echo $number.'&nbsp;';
+    }
+    echo '<br>';
+}
 
 function htmlTabel ($ridadeArv = 0, $veergudeArv = 0) {
     $table = '<table>';
