@@ -84,4 +84,44 @@ for($reaNumber = 1; $reaNumber <= $ridadeArv; $reaNumber++){
     echo '</tr>';
 }
 echo '</table>';
+
+//Ülesanne 4
+/* muuda htmlTabel() funktsiooni nii et see võtaks parameetrina numbrite masiivi ja väljastaks HTML tabelina
+*/
+
+echo '<h4>Ülesanne 4</h4>';
+function htmlTabel ($massiiv)
+{
+    echo'<table>';
+    for ($reaNumber = 0; $reaNumber < count($massiiv); $reaNumber++) {
+        echo '<tr>';
+
+        for ($veeruNumber = 0; $veeruNumber < count($massiiv[$reaNumber]); $veeruNumber++) {
+            echo '<td>';
+            echo $massiiv[$reaNumber][$veeruNumber];
+            echo '</td>';
+        }
+        echo '</tr>';
+    }
+    echo '</table>';
+}
+
+$numbrid = array(
+    array(1, 2, 3),
+    array(4, 5, 6)
+);
+htmlTabel($numbrid);
+echo '<br>';
+$sümbolid = array(
+    array('a', 'b'),
+    array('d', 'e'),
+    array('g','h')
+);
+htmlTabel($sümbolid);
 echo '</body></html>';
+
+
+
+
+
+

@@ -9,82 +9,78 @@
 // muutujate defineerimine
 // $muutujaNimi = väärtus;
 
-//massiivid
-//array()
+// massiivid
+// array()
 /*
-// * $massiiv = array (); // tühi massiiv = ei ole sees midagi
+$massiiv = array(); // tühi massiiv - ei ole sees midagi
 $massiiv[] = väärtus;
  */
-
-//massiivi loomine
-$numbrid = array(
-    array(1,2,3),
-    array(4,5,6),
-    array(7,8,9),
-);
-//massiivi sisu testkontroll
-var_dump($numbrid);
-echo '<pre>';
-print_r($numbrid);
-echo '</pre>';
-//massiivi sisendi väljastamine
-echo $numbrid[1][1];
-
-//massiivi suuruse kontroll = meil on see ridade arv
-$ridadeArv = count($numbrid);
-echo $ridadeArv;
-echo'<br>';
-$veergudeArv = count($numbrid[0]);
-echo'<br>';
-
-
-// massiivi väljastamine for abil
-for($reaNumber = 0; $reaNumber < $ridadeArv; $reaNumber++){
-    for($veeruNumber = 0; $veeruNumber < $veergudeArv; $veeruNumber++){
-        echo $numbrid[$reaNumber][$veeruNumber].'&nbsp;';
+function suguVarv($sugu){
+    if($sugu == 'naine'){
+        echo '<div style="color: red">';
+    } else {
+        echo '<div style="color: blue">';
     }
-    echo '<br>';
 }
 
-//massiivi väljastamine foreach abil, peab teadma struktuuri
-foreach ($numbrid as $rida) {
-    foreach ($rida as $number){
-        echo $number.'&nbsp;';
-    }
-    echo '<br>';
-}
-
-function htmlTabel ($ridadeArv = 0, $veergudeArv = 0) {
-    $table = '<table>';
-        for ($reaNumber = 1; $reaNumber <= $ridadeArv; $reaNumber++) {
-        $table = $table.'<tr>';
-        for ($veeruNumber = 1; $veeruNumber <= $veergudeArv; $veeruNumber++) {
-            $table = $table.'<td>';
-            $table = $table.$veeruNumber;
-            $table = $table.'</td>';
+function valjastaInfo($massiiv){
+    foreach ($massiiv as $alammassiivNimi => $alamMassiivAndmed){
+        suguVarv($alamMassiivAndmed['sugu']);
+        echo '<h5>'.$alammassiivNimi.'</h5><br>';
+        foreach ($alamMassiivAndmed as $elemendiNimi => $elemendiVaartus){
+            suguVarv($alamMassiivAndmed['sugu']);
+            echo $elemendiNimi.' - '.$elemendiVaartus.'</div>';
         }
-            $table = $table.'</tr>';
+        echo '<hr>';
     }
-    $table = $table.'</table>';
-        return $table;
 }
-//lehe sisu väljastamine
-echo '
-    <!doctype html>
-    <html>
-        <head>
-            <title>Funktsioonid</title>
-            <link rel="stylesheet" type="text/css" href="katsestyle.css">
-        </head>
-        <body>';
-//kutsume funktsiooni tööle
-$table1 = htmlTabel(4, 4);
-echo $table1;
-echo '<hr>';
-$table2 = htmlTabel(2,5);
-echo $table2;
-echo '<hr>';
-htmlTabel();
-echo htmlTabel(1, 3);
-echo '</body></html>';
-?>
+function suguVordlus($porsas1, $porsas2){
+    if ($porsas1['sugu'] == $porsas2['sugu']) {
+        return 0; }
+    return ($porsas1['sugu'] < $porsas2['sugu']) ? -1 : 1;
+}
+function sortSooJargi($perekond){
+    usort($perekond, 'suguVordlus');
+}
+// massiivi loomine
+$perekondPeppa = array(
+            'Peppa' => array(
+                'nimi' => 'Peppa',
+                'amet' => 'põrsaslaps',
+                'vanus' => 5,
+                'sugu' => 'naine'
+            ),
+            'George' => array(
+                'nimi' => 'George',
+                'amet' => 'põrsaslaps',
+                'vanus' => 2,
+                'sugu' => 'mees'
+            ),
+            'Ema' => array(
+                'Põrsas Ema' => array(
+                    'nimi' => 'Ema Põrsas',
+                    'amet' => 'põrsasema',
+                    'vanus' => 35,
+                    'sugu' => 'naine'
+                ),
+                'Isa' => array(
+                    'Põrsas Isa' => array(
+                        'nimi' => 'Isa Põrsas',
+                        'amet' => 'põrsasisa',
+                        'vanus' => 40,
+                        'sugu' => 'mees'
+                    )
+                );
+
+//sort($perekondPeppa);
+//asort($perekondPeppa);
+//ksort($perekondPeppa);
+sortSooJargi($perekondPeppa);
+// lehe sisu väljastamine
+echo '<!doctype html><html><head>
+<title>Vormid</title>
+ <link rel="stylesheet" type="text/css" href="katsestyle.css">
+ </head><body>';
+ valjastaInfo($perekondPeppa);
+ echo '</body></html>';
+ ?>
