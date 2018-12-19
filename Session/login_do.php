@@ -19,8 +19,17 @@ else if(empty($_POST['passwd'])){
     $_SESSION['viga'] = 'Sisesta kasutaja parool';
 }
 else {
+    session_destroy();//lõpetame veateate sessiooni
+    session_start();//alustan sisselogitud kasutaja sessiooni
+    session_regenerate_id();//määrame sessioonile uus ID
+
     echo session_id();
+    $_SESSION['username'] = $_POST['username'];
+
     echo '<pre>';
     print_r($_SESSION);
     echo '</pre>';
+    echo 'Oled sisse loginud, '.$_SESSION['username'];
+    echo '<br>';
+    echo '<a href="logout.php">Logi välja</a>';
 }
